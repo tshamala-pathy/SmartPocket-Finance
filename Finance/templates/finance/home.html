@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartPocket - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .summary {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+        }
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SmartPocket Dashboard</h1>
+
+    <div class="summary">
+        <div class="card">
+            <h3>Total Income</h3>
+            <p>R {{ total_income }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Expenses</h3>
+            <p>R {{ total_expense }}</p>
+        </div>
+        <div class="card">
+            <h3>Balance</h3>
+            <p><strong>R {{ balance }}</strong></p>
+        </div>
+    </div>
+
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Payment Method</th>
+                <th>Date</th>
+                <th>Vendor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.title }}</td>
+                <td>R {{ transaction.amount }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.payment_method }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.vendor }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No transactions found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
