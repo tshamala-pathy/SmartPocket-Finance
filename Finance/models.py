@@ -1,25 +1,21 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-
-# Define transaction categories
-CATEGORY_CHOICES = [
-    ('income', 'Income'),
-    ('expense', 'Expense'),
-    ('savings', 'Savings'),
-]
-
-# Define payment methods
-PAYMENT_METHOD_CHOICES = [
-    ('cash', 'Cash'),
-    ('bank', 'Bank Transfer'),
-    ('card', 'Credit/Debit Card'),
-    ('mobile', 'Mobile Money'),
-    ('other', 'Other'),
-]
-
 class Transaction(models.Model):
+    CATEGORY_CHOICES = [
+        ('income', 'Income'),
+        ('expense', 'Expense'),
+        ('savings', 'Savings'),
+    ]
+
+    PAYMENT_METHOD_CHOICES = [
+        ('cash', 'Cash'),
+        ('bank', 'Bank Transfer'),
+        ('card', 'Credit/Debit Card'),
+        ('mobile', 'Mobile Money'),
+        ('other', 'Other'),
+    ]
+
     title = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
@@ -37,3 +33,5 @@ class Transaction(models.Model):
 
     class Meta:
         ordering = ['-date']
+        verbose_name = "Transaction"
+        verbose_name_plural = "Transactions"

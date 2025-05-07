@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #000; padding: 5px; text-align: left; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Monthly Finance Report</h2>
+    <p>Date Generated: {{ date_generated }}</p>
+    <p>Total Income: R{{ total_income }}</p>
+    <p>Total Expenses: R{{ total_expense }}</p>
+    <p><strong>Balance: R{{ balance }}</strong></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.title }}</td>
+                <td>R{{ transaction.amount }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.payment_method }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    background-color: #840a0a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #212529;
+    color: white;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+
+.sidebar h4 {
+    color: #ffc107;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.sidebar a {
+    color: #adb5bd;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover {
+    background-color: #343a40;
+    color: #fff;
+}
+
+main {
+    margin-left: 200px;
+    padding: 2rem;
+}
